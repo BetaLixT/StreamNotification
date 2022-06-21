@@ -3,5 +3,5 @@ using BetaLixt.StreamNotification.Models;
 
 public interface IBatchPublisher
 {
-    Task PublishBatchAsync(IEnumerable<EventEntity> events);
+    Task PublishBatchAsync(IEnumerable<TracedEvent> events);
 }

@@ -5,10 +5,10 @@ using BetaLixt.StreamNotification.Options;
 using System.Threading.Tasks.Dataflow;
 using Microsoft.Extensions.Logging;
 
-public class PublishObserver : IObserver<EventEntity>
+public class PublishObserver : IObserver<TracedEvent>
 {
     
-    private readonly BufferBlock<EventEntity> _messageBuffer = new BufferBlock<EventEntity>();
+    private readonly BufferBlock<TracedEvent> _messageBuffer = new BufferBlock<TracedEvent>();
     private readonly IBatchPublisher _publisher;
     private readonly ILogger _logger;
     private readonly PublishObserverOptions _options;
@@ -31,7 +31,7 @@ public class PublishObserver : IObserver<EventEntity>
 
     // } 
 
-    public void OnNext(EventEntity evnt)
+    public void OnNext(TracedEvent evnt)
     {
         var attemptCount = 0;
         while (!this._messageBuffer.Post(evnt) && attemptCount < this._options.MaxPublishRetries)
