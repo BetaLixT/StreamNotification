@@ -5,6 +5,7 @@ using RabbitMQ.Client;
 using BetaLixt.StreamNotification.Options;
 using BetaLixt.StreamNotification.Publishers;
 using BetaLixt.StreamNotification.Observers;
+using BetaLixt.StreamNotification.Interfaces;
 
 public static class ServiceExtentions
 {
@@ -27,7 +28,7 @@ public static class ServiceExtentions
         services.Configure<PublishObserverOptions>(configuration.GetSection(PublishObserverOptions.OptionsKey));
 
         services.AddSingleton<NotificationDispatch>();
-        services.AddSingleton<RabbitMqPublisher>();
+        services.AddSingleton<IBatchPublisher, RabbitMqPublisher>();
         services.AddSingleton<PublishObserver>();
         return services;
     }

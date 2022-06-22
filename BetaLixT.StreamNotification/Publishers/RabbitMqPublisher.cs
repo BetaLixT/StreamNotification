@@ -6,6 +6,7 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Options;
 
 public class RabbitMqPublisher : IBatchPublisher
 {
@@ -17,12 +18,12 @@ public class RabbitMqPublisher : IBatchPublisher
     
     public RabbitMqPublisher(
         ConnectionFactory rabbitConnectionFactory,
-        RabbitMqNotificationPublisherOptions options)
+        IOptions<RabbitMqNotificationPublisherOptions> options)
     {
         this._rabbitConnectionFactory = rabbitConnectionFactory;
         this._rabbitConnection = this._rabbitConnectionFactory.CreateConnection();
         this._rabbitChannel = this._rabbitConnection.CreateModel();
-        this._options = options;
+        this._options = options.Value;
         this._rabbitChannel.ExchangeDeclare(
             this._options.NotificationExchangeName,
             this._options.NotificationExchangeType,

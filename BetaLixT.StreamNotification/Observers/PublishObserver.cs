@@ -4,6 +4,7 @@ using BetaLixt.StreamNotification.Models;
 using BetaLixt.StreamNotification.Options;
 using System.Threading.Tasks.Dataflow;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 
 public class PublishObserver : IObserver<TracedEvent>, IDisposable
 {
@@ -20,11 +21,11 @@ public class PublishObserver : IObserver<TracedEvent>, IDisposable
         IBatchPublisher publisher,
         ILogger<PublishObserver> logger,
         NotificationDispatch dispatch,
-        PublishObserverOptions options
+        IOptions<PublishObserverOptions> options
     )
     {
         this._publisher = publisher;
-        this._options = options;
+        this._options = options.Value;
         this._publishTask = this.ProcessEventQueueAsync();
         this._logger = logger;
         this._dispatch = dispatch;

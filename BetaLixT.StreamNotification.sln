@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BetaLixt.StreamNotification", "BetaLixT.StreamNotification\BetaLixt.StreamNotification.csproj", "{11AC683B-790C-41E0-BBDB-1AD4C343E7BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{DA0B95F4-D49A-4C43-B17E-F6F4142CC7B2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{11AC683B-790C-41E0-BBDB-1AD4C343E7BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11AC683B-790C-41E0-BBDB-1AD4C343E7BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11AC683B-790C-41E0-BBDB-1AD4C343E7BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11AC683B-790C-41E0-BBDB-1AD4C343E7BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0B95F4-D49A-4C43-B17E-F6F4142CC7B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0B95F4-D49A-4C43-B17E-F6F4142CC7B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0B95F4-D49A-4C43-B17E-F6F4142CC7B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0B95F4-D49A-4C43-B17E-F6F4142CC7B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

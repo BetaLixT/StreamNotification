@@ -1,14 +1,15 @@
 namespace BetaLixt.StreamNotification;
 using BetaLixt.StreamNotification.Models;
 using System.Diagnostics;
+using Microsoft.Extensions.Options;
 
 public class NotificationDispatch : IObservable<TracedEvent>
 {
     private readonly IList<IObserver<TracedEvent>> _observers = new List<IObserver<TracedEvent>>();
     private readonly NotificationDispatchOptions _options;
-    public NotificationDispatch(NotificationDispatchOptions options)
+    public NotificationDispatch(IOptions<NotificationDispatchOptions> options)
     {
-        this._options = options;
+        this._options = options.Value;
     }
 
     public IDisposable Subscribe(IObserver<TracedEvent> observer)
