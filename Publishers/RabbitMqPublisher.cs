@@ -51,7 +51,11 @@ public class RabbitMqPublisher : IBatchPublisher
 
     public void Dispose()
     {
-        this._rabbitConnection.Dispose();
-        this._rabbitChannel.Dispose();
+        try
+        {
+            this._rabbitConnection.Dispose();
+            this._rabbitChannel.Dispose();
+        }
+        catch {}
     }
 }
