@@ -4,7 +4,12 @@ using System.Diagnostics;
 
 public class NotificationDispatch : IObservable<TracedEvent>
 {
-    IList<IObserver<TracedEvent>> _observers = new List<IObserver<TracedEvent>>();
+    private readonly IList<IObserver<TracedEvent>> _observers = new List<IObserver<TracedEvent>>();
+    private readonly NotificationDispatchOptions _options;
+    public NotificationDispatch(NotificationDispatchOptions options)
+    {
+        this._options = options;
+    }
 
     public IDisposable Subscribe(IObserver<TracedEvent> observer)
     {
@@ -24,6 +29,7 @@ public class NotificationDispatch : IObservable<TracedEvent>
     )
     {
         var tracedEvent = new TracedEvent {
+            ServiceName = this._options.ServiceName,
             TraceId = Activity.Current?.Id,
             TracePartition = Activity.Current?.GetBaggageItem("tracePartition"),
             Id = eventId,

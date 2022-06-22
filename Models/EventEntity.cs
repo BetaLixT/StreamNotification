@@ -2,6 +2,7 @@ namespace BetaLixt.StreamNotification.Models;
 
 public class EventEntity
 {
+    public string ServiceName { get; set; }
     public string Id { get; set; }
     public string Stream { get; set; }
     public string StreamId { get; set; }

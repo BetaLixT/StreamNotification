@@ -26,11 +26,6 @@ public class PublishObserver : IObserver<TracedEvent>
         this._logger = logger;
     }
 
-    // public void Subscribe(IObservable<EventEntity> provider)
-    // {
-
-    // } 
-
     public void OnNext(TracedEvent evnt)
     {
         var attemptCount = 0;
@@ -47,10 +42,7 @@ public class PublishObserver : IObserver<TracedEvent>
         this._publishTask.Wait();
     }
 
-    public void OnError(Exception e)
-    {
-        // Shouldn't really happen
-    }
+    public void OnError(Exception e) {} // shouldn't really happen 
 
     private async Task ProcessEventQueueAsync()
     {
